@@ -3,7 +3,6 @@ const app = express()
 const bodyParser = require('body-parser');
 const  message = require("./model/message");
 const  News = require("./model/News");
-const  comment = require("./model/comment");
 var cors = require('cors')
 app.use(cors())
 // parse application/x-www-form-urlencoded
