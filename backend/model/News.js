@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 // Se connecter à la base de données
-const mongoDB = "mongodb://127.0.0.1:27017/news";
+const mongoDB = "mongodb://localhost:27017/news";
 mongoose.connect(mongoDB)
 .then((result) => console.log('Connexion à MongoDB réussie !'))
 .catch(() => console.log('Connexion à MongoDB échouée'))
@@ -18,5 +18,5 @@ const newsSchema =new Schema(
 img: {type: String, required: true},
 }
 )
-const Product= new mongoose.model("news", newsSchema)
-module.exports =Product
+const News= new mongoose.model("news", newsSchema)
+module.exports =News

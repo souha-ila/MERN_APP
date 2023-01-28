@@ -7,7 +7,6 @@ var cors = require('cors')
 app.use(cors())
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cors())
 
 
@@ -27,10 +26,10 @@ app.post('/message', (req, res,next) => {
       }
     })  
   });
-//---------------------------------------news--------------------------------
+//---------------------------------------add news--------------------------------
 
 app.use(bodyParser.json())
-app.post('/save', (req, res) => {
+app.post('/save', (req, res,next) => {
   News.create(req.body, (error, data) => {
     if (error) {
       return next(error)
@@ -66,36 +65,7 @@ else{
 }  
 });
 });
-//-----------------------comment------------------------------
-app.post('/sendcomment/:id', (req,res)=>
-comment.create(req.body, (error, data) => {
-  if (error) {
-    return next(error)
-  } else {
-    console.log(data)
-    res.json(data)
-    
-  }
-  
-}) 
-)
-   
-app.get('/sendcomment/:id', (req, res) => {
-  const id =req.params.id;
-  comment.find({newsItemId:id},function(err, comment) {
-    if (err) {
-      return res.send(err);
-    }
-else{
-  res.json(data);
-}  
-});
-});
 
-app.get("/images/:img", (req, res) => {
-  const img = req.params.img;
-  res.sendFile(path.join(__dirname, `/images/${img}`));
-});
 
 //--------------------Delete---------------------
 
