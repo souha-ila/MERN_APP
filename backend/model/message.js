@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 
 // Se connecter à la base de données
-const mongoDB = "mongodb://localhost:27017/Rnews";
-
+const mongoDB = "mongodb+srv://souhaila:souhaila@cluster0.h2nfyym.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose.connect(mongoDB)
 .then(() => console.log(' réussie !'))
